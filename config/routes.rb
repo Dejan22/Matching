@@ -1,18 +1,14 @@
 Rails.application.routes.draw do
-  get 'matches/home'
 
-  get 'users/home'
-
-  get 'profiles/home'
-
-  get 'pairs/home'
-
-  get 'matching/home'
-
-  get 'pages/home'
+  root to: 'pages#home'
+  
 
   devise_for :users
-  root to: "home#index"
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users
+  resources :profiles, only: [:new, :edit, :create, :update]
+  resources :matches
+
+  put 'admin/:id' => 'users#toggle_admin', :as => "toggle_admin"
+
 end

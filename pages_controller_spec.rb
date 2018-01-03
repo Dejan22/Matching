@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MatchingController, type: :controller do
+RSpec.describe PagesController, type: :controller do
 
   describe "GET #home" do
     it "returns http success" do
